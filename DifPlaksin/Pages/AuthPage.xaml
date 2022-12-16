@@ -1,0 +1,28 @@
+﻿<Page x:Class="DifPlaksin.Pages.AuthPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DifPlaksin.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AuthPage">
+
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Style="{StaticResource TxtBlock}">Login</TextBlock>
+                <TextBox Style="{StaticResource TxtBox}" Name="LoginTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Style="{StaticResource TxtBlock}">Password</TextBlock>
+                <TextBox Style="{StaticResource TxtBox}" Name="PasswordTb"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Style="{StaticResource Button}" Content="Вход" Click="Button_Click" Margin="5"></Button>
+                <Button Style="{StaticResource Button}" Content="Registration" Click="Button_Click_1"></Button>
+            </StackPanel>
+        </StackPanel>
+       
+    </Grid>
+</Page>

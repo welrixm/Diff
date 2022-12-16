@@ -1,0 +1,67 @@
+﻿<Page x:Class="DifPlaksin.Pages.ProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DifPlaksin.Pages"
+      mc:Ignorable="d" 
+      DataContext="{Binding RelativeSource={RelativeSource Self}}"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="167*"/>
+            <RowDefinition Height="29*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.RowSpan="3">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Grid.Row="0">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Style="{StaticResource TxtBlock}" Margin="5">Найти</TextBlock>
+                        <TextBox Style="{StaticResource TxtBox}" Name="TxtSearch" SelectionChanged="TxtSearch_SelectionChanged"></TextBox>
+                    </StackPanel>
+                </StackPanel>
+                <ListBox x:Name="ProductList" Background="Transparent" BorderBrush="Transparent" Width="750" Grid.Row="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <ListBoxItem BorderBrush="Black" Background="White" Width="750">
+                                <StackPanel Orientation="Vertical" Width="690">
+                                    <Image Source="{Binding MainImage}" Height="100"></Image>
+                                    <TextBlock Text="{Binding Id}" Style="{StaticResource TxtBlock}" Name="TxtIdProd" ></TextBlock>
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource TxtBlock}" Name="TxtNameProd" ></TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Cost}" Style="{StaticResource TxtBlock}" Name="TxtCostProd"></TextBlock>
+                                        <TextBlock Text="рублей" Style="{StaticResource TxtBlock}" ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding DateOdAddition}" Style="{StaticResource TxtBlock}" Name="TxtDateProd"></TextBlock>
+                                     </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Description}" Style="{StaticResource TxtBlock}" Name="TxtDescriptionProd"></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Quantity, StringFormat={}Количество:{0}}" Style="{StaticResource TxtBlock}" Name="TxtQuanProd"></TextBlock>
+                                        <TextBlock Text="{Binding Unit.Name}" Style="{StaticResource TxtBlock}" ></TextBlock>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                                        <Button x:Name="BtnEdit" Style="{StaticResource Button}" Click="BtnEdit_Click" Margin="5">Редактировать</Button>
+                                        <Button x:Name="BtnDelete" Style="{StaticResource Button}" Click="BtnDelete_Click">Удалить</Button>
+                                    </StackPanel>
+
+
+                                </StackPanel>
+                            </ListBoxItem>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Row="2">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button x:Name="BtnAdd" Style="{StaticResource Button}" Click="BtnAdd_Click"  Margin="5">Добавить</Button>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
